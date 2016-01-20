@@ -172,6 +172,7 @@ class PEReadUploaderTest:
                             }]
                         })
 
+        new_obj_info = new_obj_info[0]
         print('saved data to WS:')
         pprint(new_obj_info)
 
