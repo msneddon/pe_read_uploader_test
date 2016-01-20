@@ -33,8 +33,8 @@ parameters :
         long-hint  : |
             Valid file extensions for FASTA: .fasta, .fna, .fa   Valid file extensions for FASTQ: .fastq, .fnq, .fq
     read_library_name:
-        ui-name : Output ContigSet name
-        short-hint : Enter a name for the assembled contigs data object
+        ui-name : Output Read Library Name
+        short-hint : Enter a name for uploaded data object
 
 description : |
 	some description here

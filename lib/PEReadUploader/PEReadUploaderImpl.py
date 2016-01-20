@@ -153,6 +153,11 @@ class PEReadUploaderTest:
             'sequencing_tech':'artificial reads'
         }
 
+        
+        provenance = [{}]
+        if 'provenance' in ctx:
+            provenance = ctx['provenance']
+
         new_obj_info = self.ws.save_objects({
                         'workspace':params['workspace_name'],
                         'objects':[
@@ -161,18 +166,38 @@ class PEReadUploaderTest:
                                 'data':paired_end_library,
                                 'name':params['read_library_name'],
                                 'meta':{},
-                                'provenance':[
-                                    {
-                                        'service':'MegaHit',
-                                        'method':'test_megahit'
-                                    }
-                                ]
+                                'provenance':provenance
                             }]
                         })
 
         pprint(new_obj_info)
 
-        output = {'temp':'test'};
+
+        # create a Report
+        report = ''
+        report += 'Uploaded read library to: '+params['workspace_name']+'/'+params['read_library_name']+'\n'
+
+        reportObj = {
+            'objects_created':[{'ref':params['workspace_name']+'/'+params['read_library_name'], 'description':'Uploaded reads library'}],
+            'text_message':report
+        }
+
+        reportName = 'pe_uploader_report'+str(hex(uuid.getnode()))
+        report_obj_info = ws.save_objects({
+                'id':info[6],
+                'objects':[
+                    {
+                        'type':'KBaseReport.Report',
+                        'data':reportObj,
+                        'name':reportName,
+                        'meta':{},
+                        'hidden':1,
+                        'provenance':provenance
+                    }
+                ]
+            })[0]
+
+        output = { 'report_name': reportName, 'report_ref': str(report_obj_info[6]) + '/' + str(report_obj_info[0]) + '/' + str(report_obj_info[4]) }
 
         #END upload
 
