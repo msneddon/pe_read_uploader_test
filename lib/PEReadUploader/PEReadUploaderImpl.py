@@ -158,7 +158,8 @@ class PEReadUploaderTest:
         if 'provenance' in ctx:
             provenance = ctx['provenance']
 
-        new_obj_info = self.ws.save_objects({
+        ws = workspaceService(self.workspaceURL, token=ctx['token'])
+        new_obj_info = ws.save_objects({
                         'workspace':params['workspace_name'],
                         'objects':[
                             {
@@ -170,6 +171,7 @@ class PEReadUploaderTest:
                             }]
                         })
 
+        print('saved data to WS')
         pprint(new_obj_info)
 
 
@@ -199,6 +201,8 @@ class PEReadUploaderTest:
 
         output = { 'report_name': reportName, 'report_ref': str(report_obj_info[6]) + '/' + str(report_obj_info[0]) + '/' + str(report_obj_info[4]) }
 
+
+        print('all done!')
         #END upload
 
         # At some point might do deeper type checking...
