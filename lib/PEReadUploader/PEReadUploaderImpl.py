@@ -7,6 +7,7 @@ import os
 import json
 import time
 import requests
+import uuid
 
 from os import environ
 from ConfigParser import ConfigParser
