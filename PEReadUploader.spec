@@ -26,7 +26,7 @@ module PEReadUploaderTest {
         string report_ref;
 	} MegaHitOutput;
 
-	funcdef run_megahit(MegaHitParams params) returns (MegaHitOutput output)
+	funcdef upload(MegaHitParams params) returns (MegaHitOutput output)
 		authentication required;
 
 };
