@@ -1,7 +1,7 @@
 SERVICE = pereaduploader
 SERVICE_CAPS = PEReadUploader
 SPEC_FILE = PEReadUploader.spec
-URL = https://kbase.us/services/megahit
+URL = https://kbase.us/services/pereaduploader
 DIR = $(shell pwd)
 LIB_DIR = lib
 SCRIPTS_DIR = scripts

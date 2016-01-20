@@ -120,20 +120,10 @@ sub new
 =begin html
 
 <pre>
-$params is a PEReadUploaderTest.MegaHitParams
-$output is a PEReadUploaderTest.MegaHitOutput
-MegaHitParams is a reference to a hash where the following keys are defined:
-	workspace_name has a value which is a string
-	read_library_name has a value which is a string
-	output_contigset_name has a value which is a string
-	megahit_parameter_preset has a value which is a string
-	min_count has a value which is an int
-	k_min has a value which is an int
-	k_max has a value which is an int
-	k_step has a value which is an int
-	k_list has a value which is a reference to a list where each element is an int
-	min_contig_len has a value which is an int
-MegaHitOutput is a reference to a hash where the following keys are defined:
+$params is a PEReadUploaderTest.Params
+$output is a PEReadUploaderTest.Output
+Params is a reference to a hash where the following keys are defined
+Output is a reference to a hash where the following keys are defined:
 	report_name has a value which is a string
 	report_ref has a value which is a string
 
@@ -143,20 +133,10 @@ MegaHitOutput is a reference to a hash where the following keys are defined:
 
 =begin text
 
-$params is a PEReadUploaderTest.MegaHitParams
-$output is a PEReadUploaderTest.MegaHitOutput
-MegaHitParams is a reference to a hash where the following keys are defined:
-	workspace_name has a value which is a string
-	read_library_name has a value which is a string
-	output_contigset_name has a value which is a string
-	megahit_parameter_preset has a value which is a string
-	min_count has a value which is an int
-	k_min has a value which is an int
-	k_max has a value which is an int
-	k_step has a value which is an int
-	k_list has a value which is a reference to a list where each element is an int
-	min_contig_len has a value which is an int
-MegaHitOutput is a reference to a hash where the following keys are defined:
+$params is a PEReadUploaderTest.Params
+$output is a PEReadUploaderTest.Output
+Params is a reference to a hash where the following keys are defined
+Output is a reference to a hash where the following keys are defined:
 	report_name has a value which is a string
 	report_ref has a value which is a string
 
@@ -275,7 +255,7 @@ sub _validate_version {
 
 
 
-=head2 MegaHitParams
+=head2 Params
 
 =over 4
 
@@ -286,36 +266,14 @@ sub _validate_version {
 =begin html
 
 <pre>
-a reference to a hash where the following keys are defined:
-workspace_name has a value which is a string
-read_library_name has a value which is a string
-output_contigset_name has a value which is a string
-megahit_parameter_preset has a value which is a string
-min_count has a value which is an int
-k_min has a value which is an int
-k_max has a value which is an int
-k_step has a value which is an int
-k_list has a value which is a reference to a list where each element is an int
-min_contig_len has a value which is an int
-
+a reference to a hash where the following keys are defined
 </pre>
 
 =end html
 
 =begin text
 
-a reference to a hash where the following keys are defined:
-workspace_name has a value which is a string
-read_library_name has a value which is a string
-output_contigset_name has a value which is a string
-megahit_parameter_preset has a value which is a string
-min_count has a value which is an int
-k_min has a value which is an int
-k_max has a value which is an int
-k_step has a value which is an int
-k_list has a value which is a reference to a list where each element is an int
-min_contig_len has a value which is an int
-
+a reference to a hash where the following keys are defined
 
 =end text
 
@@ -323,7 +281,7 @@ min_contig_len has a value which is an int
 
 
 
-=head2 MegaHitOutput
+=head2 Output
 
 =over 4
 
