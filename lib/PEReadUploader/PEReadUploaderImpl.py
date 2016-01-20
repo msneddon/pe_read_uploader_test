@@ -172,7 +172,7 @@ class PEReadUploaderTest:
                             }]
                         })
 
-        print('saved data to WS')
+        print('saved data to WS:')
         pprint(new_obj_info)
 
 
@@ -187,7 +187,7 @@ class PEReadUploaderTest:
 
         reportName = 'pe_uploader_report'+str(hex(uuid.getnode()))
         report_obj_info = ws.save_objects({
-                'id':info[6],
+                'id':new_obj_info[6],
                 'objects':[
                     {
                         'type':'KBaseReport.Report',
