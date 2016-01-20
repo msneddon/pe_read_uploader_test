@@ -109,9 +109,9 @@ sub new
 
 
 
-=head2 run_megahit
+=head2 upload
 
-  $output = $obj->run_megahit($params)
+  $output = $obj->upload($params)
 
 =over 4
 
@@ -171,7 +171,7 @@ MegaHitOutput is a reference to a hash where the following keys are defined:
 
 =cut
 
- sub run_megahit
+ sub upload
 {
     my($self, @args) = @_;
 
@@ -180,7 +180,7 @@ MegaHitOutput is a reference to a hash where the following keys are defined:
     if ((my $n = @args) != 1)
     {
 	Bio::KBase::Exceptions::ArgumentValidationError->throw(error =>
-							       "Invalid argument count for function run_megahit (received $n, expecting 1)");
+							       "Invalid argument count for function upload (received $n, expecting 1)");
     }
     {
 	my($params) = @args;
@@ -188,30 +188,30 @@ MegaHitOutput is a reference to a hash where the following keys are defined:
 	my @_bad_arguments;
         (ref($params) eq 'HASH') or push(@_bad_arguments, "Invalid type for argument 1 \"params\" (value was \"$params\")");
         if (@_bad_arguments) {
-	    my $msg = "Invalid arguments passed to run_megahit:\n" . join("", map { "\t$_\n" } @_bad_arguments);
+	    my $msg = "Invalid arguments passed to upload:\n" . join("", map { "\t$_\n" } @_bad_arguments);
 	    Bio::KBase::Exceptions::ArgumentValidationError->throw(error => $msg,
-								   method_name => 'run_megahit');
+								   method_name => 'upload');
 	}
     }
 
     my $result = $self->{client}->call($self->{url}, $self->{headers}, {
-	method => "PEReadUploaderTest.run_megahit",
+	method => "PEReadUploaderTest.upload",
 	params => \@args,
     });
     if ($result) {
 	if ($result->is_error) {
 	    Bio::KBase::Exceptions::JSONRPC->throw(error => $result->error_message,
 					       code => $result->content->{error}->{code},
-					       method_name => 'run_megahit',
+					       method_name => 'upload',
 					       data => $result->content->{error}->{error} # JSON::RPC::ReturnObject only supports JSONRPC 1.1 or 1.O
 					      );
 	} else {
 	    return wantarray ? @{$result->result} : $result->result->[0];
 	}
     } else {
-        Bio::KBase::Exceptions::HTTP->throw(error => "Error invoking method run_megahit",
+        Bio::KBase::Exceptions::HTTP->throw(error => "Error invoking method upload",
 					    status_line => $self->{client}->status_line,
-					    method_name => 'run_megahit',
+					    method_name => 'upload',
 				       );
     }
 }
@@ -229,16 +229,16 @@ sub version {
             Bio::KBase::Exceptions::JSONRPC->throw(
                 error => $result->error_message,
                 code => $result->content->{code},
-                method_name => 'run_megahit',
+                method_name => 'upload',
             );
         } else {
             return wantarray ? @{$result->result} : $result->result->[0];
         }
     } else {
         Bio::KBase::Exceptions::HTTP->throw(
-            error => "Error invoking method run_megahit",
+            error => "Error invoking method upload",
             status_line => $self->{client}->status_line,
-            method_name => 'run_megahit',
+            method_name => 'upload',
         );
     }
 }

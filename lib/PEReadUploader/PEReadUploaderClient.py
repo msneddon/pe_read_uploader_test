@@ -171,10 +171,10 @@ class PEReadUploaderTest(object):
             raise ServerError('Unknown', 0, 'An unknown server error occurred')
         return resp['result']
  
-    def run_megahit(self, params, json_rpc_context = None):
+    def upload(self, params, json_rpc_context = None):
         if json_rpc_context and type(json_rpc_context) is not dict:
-            raise ValueError('Method run_megahit: argument json_rpc_context is not type dict as required.')
-        resp = self._call('PEReadUploaderTest.run_megahit',
+            raise ValueError('Method upload: argument json_rpc_context is not type dict as required.')
+        resp = self._call('PEReadUploaderTest.upload',
                           [params], json_rpc_context)
         return resp[0]
  

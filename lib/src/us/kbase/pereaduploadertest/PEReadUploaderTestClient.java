@@ -139,7 +139,7 @@ public class PEReadUploaderTestClient {
     }
 
     /**
-     * <p>Original spec-file function name: run_megahit</p>
+     * <p>Original spec-file function name: upload</p>
      * <pre>
      * </pre>
      * @param   params   instance of type {@link us.kbase.pereaduploadertest.MegaHitParams MegaHitParams}
@@ -147,11 +147,11 @@ public class PEReadUploaderTestClient {
      * @throws IOException if an IO exception occurs
      * @throws JsonClientException if a JSON RPC exception occurs
      */
-    public MegaHitOutput runMegahit(MegaHitParams params, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+    public MegaHitOutput upload(MegaHitParams params, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
         List<Object> args = new ArrayList<Object>();
         args.add(params);
         TypeReference<List<MegaHitOutput>> retType = new TypeReference<List<MegaHitOutput>>() {};
-        List<MegaHitOutput> res = caller.jsonrpcCall("PEReadUploaderTest.run_megahit", args, retType, true, true, jsonRpcContext);
+        List<MegaHitOutput> res = caller.jsonrpcCall("PEReadUploaderTest.upload", args, retType, true, true, jsonRpcContext);
         return res.get(0);
     }
 }

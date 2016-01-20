@@ -60,9 +60,9 @@ class JSONObjectEncoder(json.JSONEncoder):
 sync_methods = {}
 async_run_methods = {}
 async_check_methods = {}
-async_run_methods['PEReadUploaderTest.run_megahit_async'] = ['PEReadUploaderTest', 'run_megahit']
-async_check_methods['PEReadUploaderTest.run_megahit_check'] = ['PEReadUploaderTest', 'run_megahit']
-sync_methods['PEReadUploaderTest.run_megahit'] = True
+async_run_methods['PEReadUploaderTest.upload_async'] = ['PEReadUploaderTest', 'upload']
+async_check_methods['PEReadUploaderTest.upload_check'] = ['PEReadUploaderTest', 'upload']
+sync_methods['PEReadUploaderTest.upload'] = True
 
 class AsyncJobServiceClient(object):
 
@@ -334,10 +334,10 @@ class Application(object):
         self.serverlog.set_log_level(6)
         self.rpc_service = JSONRPCServiceCustom()
         self.method_authentication = dict()
-        self.rpc_service.add(impl_PEReadUploaderTest.run_megahit,
-                             name='PEReadUploaderTest.run_megahit',
+        self.rpc_service.add(impl_PEReadUploaderTest.upload,
+                             name='PEReadUploaderTest.upload',
                              types=[dict])
-        self.method_authentication['PEReadUploaderTest.run_megahit'] = 'required'
+        self.method_authentication['PEReadUploaderTest.upload'] = 'required'
         self.auth_client = biokbase.nexus.Client(
             config={'server': 'nexus.api.globusonline.org',
                     'verify_ssl': True,
