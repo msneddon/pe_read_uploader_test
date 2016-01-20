@@ -38,6 +38,8 @@ class PEReadUploaderTest:
         print('Parameters:')
         pprint(params)
 
+        output = {'temp':'test'};
+
         #END upload
 
         # At some point might do deeper type checking...
