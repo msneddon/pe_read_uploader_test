@@ -117,7 +117,7 @@ class PEReadUploaderTest:
 
 
         # 1) upload files to shock
-        token = self.ctx['token']
+        token = ctx['token']
         forward_shock_file = self.upload_file_to_shock(
             shock_service_url = self.shockURL,
             filePath = forward_reads_file_location,
@@ -153,7 +153,7 @@ class PEReadUploaderTest:
             'sequencing_tech':'artificial reads'
         }
 
-        
+
         provenance = [{}]
         if 'provenance' in ctx:
             provenance = ctx['provenance']
