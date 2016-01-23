@@ -87,6 +87,8 @@ class PEReadUploaderTest:
         self.shockURL = config['shock-url']
         self.handleURL = config['handle-service-url']
         self.scratch = os.path.abspath(config['scratch'])
+        print("Handle URL:")
+        print(self.handleURL)
         # HACK!! temporary hack for issue where megahit fails on mac because of silent named pipe error
         #self.host_scratch = self.scratch
         self.scratch = os.path.join('/kb','module','local_scratch')
